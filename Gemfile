@@ -36,7 +36,9 @@ gem 'slim'
 gem 'puma'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+# Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
+gem 'carrierwave', '~> 1.0'
+gem 'factory_girl_rails', :require => false
 # Use Unicorn as the app server
 # gem 'unicorn'
 

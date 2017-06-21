@@ -10,4 +10,5 @@
 #
 
 class Donate < ActiveRecord::Base
+  mount_uploader :file_transfer, ImageUploader
 end
