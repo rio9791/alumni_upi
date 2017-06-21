@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
@@ -43,7 +42,7 @@ gem 'factory_girl_rails', :require => false
 gem 'select2-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+gem 'rails_12factor'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
