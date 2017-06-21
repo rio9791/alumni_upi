@@ -11,6 +11,18 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require home/jquery.plugin.min
+//= require home/jquery.flexslider-min
+//= require home/jquery.countdown.min
+//= require home/isotope.min
+//= require home/modernizr-2.6.2-respond-1.1.0.min
+//= require home/lightbox.min
+//= require home/scrollReveal.min
+//= require home/skrollr.min
+//= require home/smooth-scroll.min
+//= require home/spectagram.min
+//= require home/twitterFetcher_v10_min
+//= require home/scripts

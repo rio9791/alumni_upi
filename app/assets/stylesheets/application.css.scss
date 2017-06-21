@@ -10,6 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+ *= require home/flexslider.min
+ *= require home/line-icons.min
+ *= require home/elegant-icons.min
+ *= require home/lightbox.min
+ *= require home/theme-aquatica.min
+ *= require home/custom
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";

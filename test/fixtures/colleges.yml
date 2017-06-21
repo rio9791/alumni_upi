@@ -1,0 +1,37 @@
+# == Schema Information
+#
+# Table name: colleges
+#
+#  id                    :integer          not null, primary key
+#  join_year             :integer
+#  basic_training        :string
+#  intermediate_training :string
+#  advanced_training     :string
+#  senior_course         :string
+#  commissariat          :string
+#  korkom                :string
+#  branch                :string
+#  badko                 :string
+#  pb                    :string
+#  alumni_id             :integer
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  join_year: 1
+  basic_training: MyString
+  intermediate_training: MyString
+  advanced_training: MyString
+  senior_course: MyString
+  alumni_id: 1
+
+two:
+  join_year: 1
+  basic_training: MyString
+  intermediate_training: MyString
+  advanced_training: MyString
+  senior_course: MyString
+  alumni_id: 1

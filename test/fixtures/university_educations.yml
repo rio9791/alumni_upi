@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: university_educations
+#
+#  id              :integer          not null, primary key
+#  university_name :string
+#  faculty         :string
+#  major           :string
+#  year            :integer
+#  graduate        :date
+#  alumni_id       :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  university_name: MyString
+  faculty: MyString
+  major: MyString
+  year: 1
+  graduate: 2017-06-20
+  alumni_id: 1
+
+two:
+  university_name: MyString
+  faculty: MyString
+  major: MyString
+  year: 1
+  graduate: 2017-06-20
+  alumni_id: 1

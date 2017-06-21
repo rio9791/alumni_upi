@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: donates
+#
+#  id            :integer          not null, primary key
+#  amount        :decimal(, )
+#  file_transfer :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 9.99
+  file_transfer: MyString
+
+two:
+  amount: 9.99
+  file_transfer: MyString

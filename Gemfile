@@ -7,6 +7,7 @@ gem 'rails', '4.2.4'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -22,7 +23,18 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
+# Pg is the Ruby interface to the {PostgreSQL RDBMS}
+gem 'pg', '~> 0.20.0'
+# Very simple Roles library without any authorization enforcement supporting scope on resource object.
+gem 'rolify'
+# Annotate Rails classes with schema and routes info
+gem 'annotate'
+# Slim is a template language whose goal is reduce the syntax to the essential parts without becoming cryptic.
+gem 'slim'
+# A ruby web server built for concurrenc
+gem 'puma'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -44,4 +56,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

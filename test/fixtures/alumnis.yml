@@ -1,0 +1,57 @@
+# == Schema Information
+#
+# Table name: alumnis
+#
+#  id               :integer          not null, primary key
+#  full_name        :string
+#  nickname         :string
+#  birth_place      :string
+#  address_origin   :text
+#  address_domicile :text
+#  sex              :integer
+#  occupation       :string
+#  cellphone        :string
+#  bbm              :string
+#  facebook         :string
+#  website          :string
+#  line_id          :string
+#  twitter          :string
+#  youtube          :string
+#  account_id       :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  nickname: MyString
+  birth_place: MyString
+  address_origin: MyText
+  address_domicile: MyText
+  sex: 1
+  occupation: MyString
+  cellphone: MyString
+  bbm: MyString
+  facebook: MyString
+  website: MyString
+  line_id: MyString
+  twitter: MyString
+  youtube: MyString
+
+two:
+  full_name: MyString
+  nickname: MyString
+  birth_place: MyString
+  address_origin: MyText
+  address_domicile: MyText
+  sex: 1
+  occupation: MyString
+  cellphone: MyString
+  bbm: MyString
+  facebook: MyString
+  website: MyString
+  line_id: MyString
+  twitter: MyString
+  youtube: MyString
