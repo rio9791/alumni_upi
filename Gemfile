@@ -39,6 +39,8 @@ gem 'puma'
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave', '~> 1.0'
 gem 'factory_girl_rails', :require => false
+# Integrate Select2 javascript library with Rails asset pipeline
+gem 'select2-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -52,6 +54,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'pry'
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
