@@ -21063,3 +21063,497 @@ Processing by HomeController#index as HTML
   Rendered shared/_header.html.slim (1.9ms)
   Rendered shared/_footer.html.slim (0.3ms)
 Completed 200 OK in 115ms (Views: 114.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 14:35:27 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (74.7ms)
+  Rendered shared/_header.html.slim (3.4ms)
+  Rendered shared/_footer.html.slim (0.4ms)
+Completed 200 OK in 384ms (Views: 383.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 14:35:29 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (17.0ms)
+  Rendered shared/_header.html.slim (2.3ms)
+  Rendered shared/_footer.html.slim (0.5ms)
+Completed 200 OK in 137ms (Views: 136.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_in" for ::1 at 2017-06-21 14:35:37 +0700
+Processing by Accounts::SessionsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.6ms)
+  Rendered accounts/sessions/new.html.slim within layouts/application (22.6ms)
+  Rendered shared/_header.html.slim (2.7ms)
+  Rendered shared/_footer.html.slim (0.4ms)
+Completed 200 OK in 145ms (Views: 144.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_in" for ::1 at 2017-06-21 14:35:39 +0700
+Processing by Accounts::SessionsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.5ms)
+  Rendered accounts/sessions/new.html.slim within layouts/application (5.6ms)
+  Rendered shared/_header.html.slim (2.4ms)
+  Rendered shared/_footer.html.slim (0.3ms)
+Completed 200 OK in 117ms (Views: 115.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_up" for ::1 at 2017-06-21 14:35:43 +0700
+Processing by Accounts::RegistrationsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.4ms)
+  Rendered accounts/registrations/new.html.slim within layouts/application (8.3ms)
+  Rendered shared/_header.html.slim (2.3ms)
+  Rendered shared/_footer.html.slim (0.6ms)
+Completed 200 OK in 134ms (Views: 133.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_up" for ::1 at 2017-06-21 14:35:44 +0700
+Processing by Accounts::RegistrationsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.4ms)
+  Rendered accounts/registrations/new.html.slim within layouts/application (4.7ms)
+  Rendered shared/_header.html.slim (2.7ms)
+  Rendered shared/_footer.html.slim (0.3ms)
+Completed 200 OK in 144ms (Views: 142.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/accounts" for ::1 at 2017-06-21 16:51:16 +0700
+Processing by Accounts::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"biyTF68mZVpAC9SbqxRQ/4HK2EcCw2b802tMO8NJELE/+sGJhJwthOYd04zqck6AzrkfGwNN1Yr/Y6Es+DQQHw==", "account"=>{"email"=>"rio.dermawan57@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mAccount Exists (50.6ms)[0m  [1mSELECT  1 AS one FROM "accounts" WHERE "accounts"."email" = 'rio.dermawan57@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (45.1ms)[0m  INSERT INTO "accounts" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "rio.dermawan57@gmail.com"], ["encrypted_password", "$2a$11$B7fjwdYFNwgXPxHTTNbY0.AQj4/zNwSKxtIdL..l4PuaHUt6ZXUY."], ["created_at", "2017-06-21 09:51:17.791626"], ["updated_at", "2017-06-21 09:51:17.791626"]]
+  [1m[36m (77.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (62.1ms)[0m  [1mUPDATE "accounts" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "accounts"."id" = $7[0m  [["last_sign_in_at", "2017-06-21 09:51:17.918771"], ["current_sign_in_at", "2017-06-21 09:51:17.918771"], ["last_sign_in_ip", "::1/128"], ["current_sign_in_ip", "::1/128"], ["sign_in_count", 1], ["updated_at", "2017-06-21 09:51:17.920461"], ["id", 1]]
+  [1m[35m (1.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 992ms (ActiveRecord: 237.5ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:51:18 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (146.5ms)
+  Rendered shared/_header.html.slim (12.8ms)
+  Rendered shared/_footer.html.slim (0.3ms)
+Completed 200 OK in 722ms (Views: 721.5ms | ActiveRecord: 0.0ms)
+  [1m[36mAccount Load (8.6ms)[0m  [1mSELECT "accounts".* FROM "accounts"[0m
+
+
+Started GET "/accounts/sign_in" for ::1 at 2017-06-21 16:51:41 +0700
+Processing by Accounts::SessionsController#new as HTML
+  [1m[36mAccount Load (0.6ms)[0m  [1mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:51:41 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (21.0ms)
+  Rendered shared/_header.html.slim (2.3ms)
+  Rendered shared/_footer.html.slim (0.2ms)
+Completed 200 OK in 124ms (Views: 123.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:51:47 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (13.5ms)
+  Rendered shared/_header.html.slim (1.2ms)
+  Rendered shared/_footer.html.slim (0.1ms)
+Completed 200 OK in 111ms (Views: 110.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_in" for ::1 at 2017-06-21 16:51:51 +0700
+Processing by Accounts::SessionsController#new as HTML
+  [1m[35mAccount Load (0.8ms)[0m  SELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:51:51 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (20.0ms)
+  Rendered shared/_header.html.slim (1.9ms)
+  Rendered shared/_footer.html.slim (0.3ms)
+Completed 200 OK in 130ms (Views: 129.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:53:28 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (70.3ms)
+  [1m[36mAccount Load (0.5ms)[0m  [1mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.slim (35.7ms)
+  Rendered shared/_footer.html.slim (0.4ms)
+Completed 200 OK in 417ms (Views: 415.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:53:37 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (16.2ms)
+  [1m[35mAccount Load (0.6ms)[0m  SELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.slim (34.8ms)
+  Rendered shared/_footer.html.slim (0.1ms)
+Completed 200 OK in 132ms (Views: 130.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/accounts/sign_out" for ::1 at 2017-06-21 16:53:43 +0700
+
+ActionController::RoutingError (No route matches [GET] "/accounts/sign_out"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+  puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+  puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+  puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+  puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (130.2ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.7ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (2.4ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (117.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.9ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (297.6ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:54:11 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (71.4ms)
+  [1m[36mAccount Load (0.5ms)[0m  [1mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.slim (41.1ms)
+  Rendered shared/_footer.html.slim (0.5ms)
+Completed 200 OK in 416ms (Views: 414.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/accounts/sign_out.1" for ::1 at 2017-06-21 16:54:14 +0700
+
+ActionController::RoutingError (No route matches [GET] "/accounts/sign_out.1"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+  puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+  puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+  puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+  puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.3ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.3ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (123.2ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (89.4ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (194.7ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:55:14 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (19.6ms)
+  [1m[35mAccount Load (0.5ms)[0m  SELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.slim (42.0ms)
+  Rendered shared/_footer.html.slim (0.3ms)
+Completed 200 OK in 156ms (Views: 155.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/accounts/sign_out" for ::1 at 2017-06-21 16:55:17 +0700
+
+ActionController::RoutingError (No route matches [POST] "/accounts/sign_out"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+  puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+  puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+  puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+  puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.8ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (121.3ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.8ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.8ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.9ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (88.8ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.7ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (208.7ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:56:22 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (18.4ms)
+  [1m[36mAccount Load (0.2ms)[0m  [1mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.slim (60.7ms)
+  Rendered shared/_footer.html.slim (0.3ms)
+Completed 200 OK in 179ms (Views: 172.7ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/accounts/sign_out" for ::1 at 2017-06-21 16:56:27 +0700
+
+ActionController::RoutingError (No route matches [POST] "/accounts/sign_out"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.8) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.8) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.8) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.8) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.8) lib/rack/content_length.rb:15:in `call'
+  puma (3.9.1) lib/puma/configuration.rb:224:in `call'
+  puma (3.9.1) lib/puma/server.rb:602:in `handle_request'
+  puma (3.9.1) lib/puma/server.rb:435:in `process_client'
+  puma (3.9.1) lib/puma/server.rb:299:in `block in run'
+  puma (3.9.1) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.9ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (122.2ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (10.9ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.7ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (71.0ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/riodermawan/.rvm/gems/ruby-2.3.0@alumni/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (179.7ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:56:36 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (16.0ms)
+  [1m[35mAccount Load (0.6ms)[0m  SELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.slim (4.6ms)
+  Rendered shared/_footer.html.slim (0.3ms)
+Completed 200 OK in 117ms (Views: 115.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:56:50 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (14.1ms)
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_header.html.slim (28.7ms)
+  Rendered shared/_footer.html.slim (0.1ms)
+Completed 200 OK in 129ms (Views: 127.9ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/accounts/sign_out" for ::1 at 2017-06-21 16:56:53 +0700
+Processing by Accounts::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"h28fsmh7+oyNiyFPJuEm1O7zXj7XJDhOrzj7NsNaIVbWuU0sQ8GyUiudJlhnhziroYCZYtaqiziDMBYh+Cch+A=="}
+  [1m[35mAccount Load (1.0ms)[0m  SELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 59ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:56:53 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (16.2ms)
+  Rendered shared/_header.html.slim (1.8ms)
+  Rendered shared/_footer.html.slim (0.3ms)
+Completed 200 OK in 142ms (Views: 141.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_in" for ::1 at 2017-06-21 16:56:58 +0700
+Processing by Accounts::SessionsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.6ms)
+  Rendered accounts/sessions/new.html.slim within layouts/application (27.3ms)
+  Rendered shared/_header.html.slim (3.2ms)
+  Rendered shared/_footer.html.slim (0.5ms)
+Completed 200 OK in 142ms (Views: 140.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_in" for ::1 at 2017-06-21 16:57:02 +0700
+Processing by Accounts::SessionsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.4ms)
+  Rendered accounts/sessions/new.html.slim within layouts/application (4.6ms)
+  Rendered shared/_header.html.slim (1.8ms)
+  Rendered shared/_footer.html.slim (0.1ms)
+Completed 200 OK in 98ms (Views: 96.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/accounts/sign_in" for ::1 at 2017-06-21 16:57:07 +0700
+Processing by Accounts::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TexATX4D3uA4OGu1gRKsII4RNCeecob2kDLiF9LINfUcVYpqoj9ZWqiMBuvBfcgHZoilW822Di9Ul4Ln5HXwvg==", "account"=>{"email"=>"rio.dermawan57@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[36mAccount Load (0.6ms)[0m  [1mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."email" = $1  ORDER BY "accounts"."id" ASC LIMIT 1[0m  [["email", "rio.dermawan57@gmail.com"]]
+Completed 401 Unauthorized in 157ms (ActiveRecord: 0.6ms)
+Processing by Accounts::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TexATX4D3uA4OGu1gRKsII4RNCeecob2kDLiF9LINfUcVYpqoj9ZWqiMBuvBfcgHZoilW822Di9Ul4Ln5HXwvg==", "account"=>{"email"=>"rio.dermawan57@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  Rendered accounts/shared/_links.html.erb (0.6ms)
+  Rendered accounts/sessions/new.html.slim within layouts/application (5.9ms)
+  Rendered shared/_header.html.slim (1.4ms)
+  Rendered shared/_footer.html.slim (0.2ms)
+Completed 200 OK in 246ms (Views: 91.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/accounts/sign_in" for ::1 at 2017-06-21 16:57:17 +0700
+Processing by Accounts::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QQ90PaVdOlKzdE8HAwphyG8uSRwpMewQvp3+dKmLNGYQtr4aeWG96CPAIllDZQXvh7fYYHr1ZMl6OJ6EnzbxLQ==", "account"=>{"email"=>"rio.dermawan57@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mAccount Load (0.6ms)[0m  SELECT  "accounts".* FROM "accounts" WHERE "accounts"."email" = $1  ORDER BY "accounts"."id" ASC LIMIT 1  [["email", "rio.dermawan57@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "accounts" SET "current_sign_in_at" = $1, "sign_in_count" = $2, "updated_at" = $3 WHERE "accounts"."id" = $4  [["current_sign_in_at", "2017-06-21 09:57:17.207419"], ["sign_in_count", 2], ["updated_at", "2017-06-21 09:57:17.210133"], ["id", 1]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 178ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:57:17 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (10.5ms)
+  [1m[35mAccount Load (0.4ms)[0m  SELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered shared/_header.html.slim (3.1ms)
+  Rendered shared/_footer.html.slim (0.2ms)
+Completed 200 OK in 103ms (Views: 101.8ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/accounts/sign_out" for ::1 at 2017-06-21 16:57:20 +0700
+Processing by Accounts::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nnGh0aDWGR5I2ve01XyA//rnNkQY37GtH2Yf2CFQRyq+QRaAuvS49PMMv7Hn2ffImITAZIOiRrLF1IoYoJW3YA=="}
+  [1m[36mAccount Load (0.3ms)[0m  [1mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1  ORDER BY "accounts"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 8ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 16:57:20 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (14.0ms)
+  Rendered shared/_header.html.slim (1.6ms)
+  Rendered shared/_footer.html.slim (0.3ms)
+Completed 200 OK in 116ms (Views: 115.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_up" for ::1 at 2017-06-21 17:00:03 +0700
+Processing by Accounts::RegistrationsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.4ms)
+  Rendered accounts/registrations/new.html.slim within layouts/application (26.9ms)
+  Rendered shared/_header.html.slim (5.8ms)
+  Rendered shared/_footer.html.slim (0.7ms)
+Completed 200 OK in 415ms (Views: 400.0ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/accounts/sign_up" for ::1 at 2017-06-21 17:00:05 +0700
+Processing by Accounts::RegistrationsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.2ms)
+  Rendered accounts/registrations/new.html.slim within layouts/application (5.3ms)
+  Rendered shared/_header.html.slim (1.5ms)
+  Rendered shared/_footer.html.slim (0.2ms)
+Completed 200 OK in 95ms (Views: 92.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-06-21 17:05:50 +0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.slim within layouts/application (90.6ms)
+  Rendered shared/_header.html.slim (5.1ms)
+  Rendered shared/_footer.html.slim (0.4ms)
+Completed 200 OK in 594ms (Views: 593.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_in" for ::1 at 2017-06-21 17:06:52 +0700
+Processing by Accounts::SessionsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.8ms)
+  Rendered accounts/sessions/new.html.slim within layouts/application (23.6ms)
+  Rendered shared/_header.html.slim (2.9ms)
+  Rendered shared/_footer.html.slim (0.2ms)
+Completed 200 OK in 232ms (Views: 230.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/sign_in" for ::1 at 2017-06-21 17:06:55 +0700
+Processing by Accounts::SessionsController#new as HTML
+  Rendered accounts/shared/_links.html.erb (0.4ms)
+  Rendered accounts/sessions/new.html.slim within layouts/application (5.9ms)
+  Rendered shared/_header.html.slim (1.4ms)
+  Rendered shared/_footer.html.slim (0.1ms)
+Completed 200 OK in 94ms (Views: 93.3ms | ActiveRecord: 0.0ms)
