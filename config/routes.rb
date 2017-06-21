@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :accounts
+  devise_for :accounts, controllers: {
+    sessions: 'accounts/sessions',
+    registrations: 'accounts/registrations'
+  }
 
   resources :home
 

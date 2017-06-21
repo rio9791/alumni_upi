@@ -1,0 +1,22 @@
+footer.short.bg-secondary-1
+  .container
+    .row
+      .col-sm-10
+        span.sub= "© Copright #{Date.today.strftime('%Y')} Adipati Kresna"
+        ul
+          li
+            a href="#"  Terms Of Use
+          li
+            a href="#"  Privacy &amp; Security Statement
+          li
+            a href="#"  Sitemap
+      .col-sm-2.text-right
+        ul.social-icons
+          li
+            = link_to 'https://twitter.com/AlumniUPI', target: '_blank' do
+              i.icon.social_twitter
+          li
+            = link_to 'https://www.facebook.com/AlumniUPI', target: '_blank' do
+              i.icon.social_facebook
+    /! end of row
+  /! end of container
