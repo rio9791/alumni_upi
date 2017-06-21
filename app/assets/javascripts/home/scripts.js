@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('ready turbolinks:load', function(){
 
 	"use strict";
 
@@ -141,7 +141,7 @@ $(document).ready(function(){
 	// Scroll Reveal
 
 	if (!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
-       window.scrollReveal = new scrollReveal();
+      //  window.scrollReveal = new scrollReveal();
     }else{
     	$('body').addClass('pointer');
     }
@@ -370,7 +370,7 @@ $(document).ready(function(){
 
 });
 
-$(window).load(function(){
+$(window).on('load turbolinks:load', function(){
 
   "use strict";
 

@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+admin = Account.new({email: 'admin@alumniupi.edu', password: 'password', password_confirmation: 'password'})
+admin.save!
+admin.add_role(:admin)

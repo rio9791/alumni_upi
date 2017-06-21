@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[http-equiv="X-UA-Compatible" content="IE=edge"]
+    meta[content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"]
+    meta[name="description" content=""]
+    meta[name="author" content=""]
+    title
+      | QuizMaster.
+    script src="http://code.jquery.com/jquery-1.9.1.js"
+    = stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'admin', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = favicon_link_tag 'icon_upi.ico'
+  body.hold-transition.skin-blue.sidebar-mini
+    = render "shared/admin/header"
+    .wrapper.row-offcanvas.row-offcanvas-left
+      aside.left-side.sidebar-offcanvas
+        = render "shared/admin/sidebar"
+      aside.right-side
+        = yield(:content_header)
+        - flash.each do |name, msg|
+          .pad.margin.no-print
+            = content_tag :div, :class => "alert alert-#{ name == "error" ? "danger" : "success" } alert-dismissable", :role => "alert" do
+              button.close[type="button" data-dismiss="alert" aria-hidden="true"]
+                | x
+              = msg
+        = yield
+    .spinner.no-print.hidden
+      = image_tag("ajax-loader.gif", alt: "")
+    = javascript_include_tag 'application'
+    - if params[:action] == 'show'
+      script[async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBeGzAjIWncSEjQaPacmBHmPA8hdXWcnK0&callback=initMap"]
+    = yield(:external_javascript)

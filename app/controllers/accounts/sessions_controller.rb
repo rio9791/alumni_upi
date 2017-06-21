@@ -8,19 +8,11 @@ class Accounts::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    account = Account.find_by_email(params[:email])
-    if account && account.authenticate(params[:password])
-      session[:account] = account.id
-      sign_in account
-      unless account.has_role?(:admin)
-        redirect_to root_path
-      else
-        redirect_to admin_dashboard_index_path
-      end
-    else
-      flash.now[:error] = 'Invalid email/password combination'
-      render 'new'
-    end
+    self.resource = warden.authenticate!(auth_options)
+    set_flash_message!(:notice, :signed_in)
+    sign_in(resource_name, resource)
+    yield resource if block_given?
+    respond_with resource, location: after_sign_in_path_for(resource)
   end
 
   # DELETE /resource/sign_out
