@@ -15,8 +15,6 @@
 #  last_sign_in_ip        :inet
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  crypted_password       :string
-#  salt                   :string
 #
 
 class Account < ActiveRecord::Base
@@ -28,52 +26,17 @@ class Account < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # relationship
-  has_one :alumni
-  has_one :faculty
-  has_one :company
-  has_one :donor
+  has_one :alumni, dependent: :destroy
+  has_one :faculty, dependent: :destroy
+  has_one :company, dependent: :destroy
+  accepts_nested_attributes_for :alumni
+  accepts_nested_attributes_for :faculty
+  accepts_nested_attributes_for :company
 
-  def authenticate(submitted_password)
-    has_password?(submitted_password)
-  end
-
-  def has_password?(password)
-    password.eql?(password_clean)
-  end
-
-  def encrypt(password)
-    self.class.encrypt(password, salt)
-  end
-
-  def self.encrypt(password, salt)
-    enc = OpenSSL::Cipher::Cipher.new('DES-EDE3-CBC')
-    enc.encrypt(salt)
-    data = enc.update(password)
-    Base64.encode64(data << enc.final)
-  rescue
-    nil
-  end
-
-  def password_clean
-    unless @password
-      enc = OpenSSL::Cipher::Cipher.new('DES-EDE3-CBC')
-      enc.decrypt(salt)
-      # enc.decrypt
-      # enc.pkcs5_keyivgen(password, salt.to_s[0..7])
-      text = enc.update(Base64.decode64(crypted_password))
-      @password = (text << enc.final)
-    end
-    @password
-  rescue
-    nil
-  end
-
-  protected
-
-  def encrypt_password
-    return if password.blank?
-    self.salt = Digest::SHA1.hexdigest("--#{Time.now.to_s}--#{email}--") if new_record?
-    self.crypted_password = encrypt(password)
-  end
+  # scope
+  scope :alumni, -> {joins(:roles).where(roles: {name: 'alumni'})}
+  scope :company, -> {joins(:roles).where(roles: {name: 'company'})}
+  scope :faculty, -> {joins(:roles).where(roles: {name: 'faculty'})}
+  scope :admin, -> {joins(:roles).where(roles: {name: 'admin'})}
 
 end

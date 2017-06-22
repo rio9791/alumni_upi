@@ -33,6 +33,8 @@ gem 'annotate'
 gem 'slim'
 # A ruby web server built for concurrenc
 gem 'puma'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
@@ -43,6 +45,10 @@ gem 'select2-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'rails_12factor'
+# To gemify the summernote WYSIWYG editor for Rails >= 3.1
+gem 'summernote-rails'
+# Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
+gem 'cocoon'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

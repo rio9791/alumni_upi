@@ -10,11 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap
  *= require font-awesome.min
  *= require admin/admin-lte.min
  *= require admin/ionicons.min
  *= require admin/_all-skins.min
  *= require admin/morris
+ *= require admin/datepicker
  *= require select2
  */
+
+ @import 'bootstrap';
+ @import "summernote";

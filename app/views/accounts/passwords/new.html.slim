@@ -1,0 +1,15 @@
+section.no-pad.login-page.fullscreen-element
+  .background-image-holder
+    = image_tag('hero6.jpg', class: 'background-image')
+  .container.align-vertical
+    .row
+      .col-md-4.col-md-offset-4.col-sm-6.col-sm-offset-3.text-center
+        h1.text-white Forgot your password?
+        .photo-form-wrapper.clearfix
+          = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+            = f.email_field :email, autofocus: true, placeholder: 'Email address'
+            = f.submit "Send me reset password instructions", class: 'login-btn btn-filled'
+        /! end of photo form wrapper
+        = render "accounts/shared/links"
+    /! end of row
+  /! end of container

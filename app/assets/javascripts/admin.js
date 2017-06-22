@@ -13,6 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-migrate-1.3.0
-//= require bootstrap.min
+//= require bootstrap
+//= require summernote
 //= require select2
 //= require turbolinks
+//= require cocoon
+//= require admin/bootstrap-datepicker
+//= require admin/app

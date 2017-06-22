@@ -20,17 +20,23 @@
 #  account_id       :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  nim              :string
+#  dob              :date
 #
 
 class Alumni < ActiveRecord::Base
   # relationship
   belongs_to :account
-  has_one :college
-  has_one :family
-  has_one :previous_education
-  has_many :university_educations
+  has_one :college, dependent: :destroy
+  has_one :family, dependent: :destroy
+  has_one :previous_education, dependent: :destroy
+  has_many :university_educations, dependent: :destroy
   accepts_nested_attributes_for :university_educations
+  accepts_nested_attributes_for :college
+  accepts_nested_attributes_for :family
+  accepts_nested_attributes_for :previous_education
 
   # enumeration
-  enum sex: [:male, :female]
+  SEX = [ :pria, :wanita ]
+  enum sex: SEX
 end

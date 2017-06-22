@@ -1,0 +1,11 @@
+.nested-fields
+  .row
+    .col-lg-10
+      .col-md-3
+        = f.input :name, label: 'Nama', input_html: { class: 'form-control' }
+      .col-md-3
+        = f.input :position, label: 'Posisi', input_html: { class: 'form-control' }
+      .col-md-3
+        = f.input :description, as: :text, label: 'Deskripsi', input_html: { class: 'form-control' }
+      .col-md-1
+        = link_to_remove_association 'x', f

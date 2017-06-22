@@ -1,0 +1,173 @@
+- if @account.errors.any?
+  .alert.alert-danger
+    button.close[type="button" data-dismiss="alert" aria-hidden="true"]
+      | ×
+    = pluralize(@account.errors.count, 'error')
+    |  encountered:
+    ul
+      - @account.errors.full_messages.each do |message|
+        li
+          = message
+= simple_form_for @account, as: :account, url: (@account.new_record? ? admin_accounts_alumnis_path : admin_accounts_alumni_path(@account)), html: { class: 'form-horizontal', method: (@account.new_record? ? 'post' : 'put')} do |f|
+  .panel-body
+    .row
+      h3 Data akun
+      .col-lg-6
+        .col-md-6
+          = f.input :email, as: :string, input_html: { class: 'form-control' }
+      .col-lg-12
+        .col-md-6
+          = f.input :password, as: :password, input_html: { class: 'form-control' }
+        .col-md-6
+          = f.input :password_confirmation, as: :password, input_html: { class: 'form-control' }
+  = f.simple_fields_for :alumni, @account.new_record? ? @account.build_alumni : @account.alumni do |alumni|
+    .panel-body
+      .row
+        h3 Data Pribadi
+        .col-lg-12
+          .col-md-4
+            = alumni.input :full_name, label: 'Nama lengkap', input_html: { class: 'form-control' }
+          .col-md-4
+            = alumni.input :nickname, label: 'Nama panggilan', input_html: { class: 'form-control' }
+          .col-md-4
+            = alumni.input :nim, label: 'NIM', input_html: { class: 'form-control' }
+        .col-lg-12
+          .col-md-3
+            = alumni.input :sex, collection: Alumni::SEX, label: 'Jenis Kelamin', input_html: { class: 'form-control' }
+          .col-md-3
+            = alumni.input :birth_place, label: 'Tempat lahir', input_html: { class: 'form-control' }
+          .col-md-3
+            = alumni.input :dob, as: :string, label: 'Tanggal lahir', input_html: { class: 'form-control datepicker' }
+        .col-lg-12
+          .col-md-6
+            = alumni.input :address_origin, as: :text, label: 'Alamat asal', input_html: { class: 'form-control' }
+          .col-md-6
+            = alumni.input :address_domicile, as: :text, label: 'Alamat domisili', input_html: { class: 'form-control' }
+        .col-lg-12
+          .col-md-3
+            = alumni.input :occupation, label: 'Pekerjaan', input_html: { class: 'form-control' }
+          .col-md-3
+            = alumni.input :cellphone, label: 'Nomor HP', input_html: { class: 'form-control' }
+          .col-md-3
+            = alumni.input :bbm, label: 'Pin BBM', input_html: { class: 'form-control' }
+          .col-md-3
+              = alumni.input :line_id, label: 'Line ID', input_html: { class: 'form-control' }
+        .col-lg-12
+          .col-md-3
+            = alumni.input :facebook, label: 'Facebook', input_html: { class: 'form-control' }
+          .col-md-3
+            = alumni.input :website, label: 'Website', input_html: { class: 'form-control' }
+          .col-md-3
+            = alumni.input :twitter, label: 'Twitter', input_html: { class: 'form-control' }
+          .col-md-3
+            = alumni.input :youtube, label: 'Youtube', input_html: { class: 'form-control' }
+    = alumni.simple_fields_for :family, alumni.object.family.blank? ? alumni.object.build_family : alumni.object.family do |family|
+      .panel-body
+        .row
+          h3 Data Keluarga
+          .col-lg-12
+            .col-md-4
+              = family.input :father_name, label: 'Nama Ayah', input_html: { class: 'form-control' }
+            .col-md-4
+              = family.input :father_birthplace, label: 'Tempat lahir', input_html: { class: 'form-control' }
+            .col-md-4
+              = family.input :father_dob, as: :string, label: 'Tanggal lahir', input_html: { class: 'form-control datepicker' }
+          .col-lg-12
+            .col-md-4
+              = family.input :father_last_education, label: 'Pendidikan terakhir', input_html: { class: 'form-control' }
+            .col-md-4
+              = family.input :father_occupation, label: 'Pekerjaan', input_html: { class: 'form-control' }
+            .col-md-4
+              = family.input :father_address, as: :text, label: 'Alamat tinggal', input_html: { class: 'form-control' }
+        .row
+          .col-lg-12
+            .col-md-4
+              = family.input :mother_name, label: 'Nama Ibu', input_html: { class: 'form-control' }
+            .col-md-4
+              = family.input :mother_birthplace, label: 'Tempat lahir', input_html: { class: 'form-control' }
+            .col-md-4
+              = family.input :mother_dob, as: :string, label: 'Tanggal lahir', input_html: { class: 'form-control datepicker' }
+          .col-lg-12
+            .col-md-4
+              = family.input :mother_last_education, label: 'Pendidikan terakhir', input_html: { class: 'form-control' }
+            .col-md-4
+              = family.input :mother_occupation, label: 'Pekerjaan', input_html: { class: 'form-control' }
+            .col-md-4
+              = family.input :mother_address, as: :text, label: 'Alamat tinggal', input_html: { class: 'form-control' }
+        .row
+          .col-lg-8
+            .col-md-4
+              = family.input :number_of_sibling, label: 'Jumlah saudara kandung', as: :integer, min: 0, input_html: { class: 'form-control' }
+            .col-md-4
+              = family.input :sibling_index, label: 'Anak ke', as: :integer, min: 1, input_html: { class: 'form-control' }
+    = alumni.simple_fields_for :college, alumni.object.college.blank? ? alumni.object.build_college : alumni.object.college do |college|
+      .panel-body
+        .row
+          h3 Data Mahasiswa
+          .col-lg-12
+            .col-md-4
+              = college.input :join_year, as: :integer, label: 'Angkatan', input_html: { class: 'form-control' }
+          .col-lg-12
+            .col-md-3
+              = college.input :basic_training, label: 'Basic Training (LK-1)', input_html: { class: 'form-control' }
+            .col-md-3
+              = college.input :intermediate_training, label: 'Intermediate Training (LK-2)', input_html: { class: 'form-control' }
+            .col-md-3
+              = college.input :advanced_training, label: 'Advanced Training (LK-3)', input_html: { class: 'form-control' }
+            .col-md-3
+              = college.input :senior_course, label: 'Senior Course (SC)', input_html: { class: 'form-control' }
+      .panel-body
+        .row
+          h3 Pusdiklat
+          #trainings
+            = college.simple_fields_for :trainings do |training|
+              = render 'training_fields', f: training
+            .links
+              = link_to_add_association '+ Tambah Pusdiklat', college, :trainings, class: 'btn btn-primary'
+      .panel-body
+        .row
+          h3 Data Mahasiswa (lanjut)
+          .col-lg-12
+            .col-md-2
+              = college.input :commissariat, label: 'Komisariat', input_html: { class: 'form-control' }
+            .col-md-3
+              = college.input :korkom, input_html: { class: 'form-control' }
+            .col-md-3
+              = college.input :branch, label: 'Cabang', input_html: { class: 'form-control' }
+            .col-md-2
+              = college.input :badko, input_html: { class: 'form-control' }
+            .col-md-2
+              = college.input :pb, input_html: { class: 'form-control' }
+      .panel-body
+        .row
+          h3 Lembaga lainnya
+          #organizations
+            = college.simple_fields_for :organizations do |organization|
+              = render 'organization_fields', f: organization
+            .links
+              = link_to_add_association '+ Tambah Lembaga', college, :organizations, class: 'btn btn-primary'
+      .panel-body
+        .row
+          h3 Pendidikan sebelumnya
+          = alumni.simple_fields_for :previous_education, alumni.object.previous_education.blank? ? alumni.object.build_previous_education : alumni.object.previous_education do |previous_education|
+            .col-lg-12
+              .col-md-4
+                = previous_education.input :elementary_school, label: 'SD', input_html: { class: 'form-control' }
+              .col-md-4
+                = previous_education.input :senior_high_school, label: 'SMP', input_html: { class: 'form-control' }
+              .col-md-4
+                = previous_education.input :senior_high_school, label: 'SMA', input_html: { class: 'form-control' }
+      .panel-body
+        .row
+          h3 Pendidikan tingkat Universitas
+          #university_educations
+            = alumni.simple_fields_for :university_educations do |university_education|
+              = render 'university_education_fields', f: university_education
+            .links
+              = link_to_add_association '+ Tambah Pendidikan', alumni, :university_educations, class: 'btn btn-primary'
+
+
+  .panel-footer
+    = link_to admin_accounts_alumnis_path, class: 'btn btn-default' do
+      i.fa.fa-undo Back
+    = f.submit 'Save', class: 'btn btn-success'

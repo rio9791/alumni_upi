@@ -3,3 +3,21 @@ li class="#{is_active_path?('dashboard') ? 'active' : ''}"
   = link_to admin_dashboard_index_path do
     i.fa.fa-dashboard
     span Dashboard
+li class="treeview #{is_accounts_path?(params) ? 'active' : ''}"
+  a href="#"
+    i.fa.fa-user
+    span Accounts
+    i.fa.fa-angle-left.pull-right
+  ul.treeview-menu class= "#{is_accounts_path?(params) ? 'menu-open' : ''}" style="#{is_accounts_path?(params) ? 'diplay:block;' : 'display:none;'}"
+    li class="treeview #{is_accounts_path?(params) ? 'active' : ''}"
+      a href="#{admin_accounts_alumnis_path}"
+        i.fa.fa-group
+        | Alumni
+    li class="treeview #{is_accounts_path?(params) ? 'active' : ''}"
+      a href="#{admin_accounts_companies_path}"
+        i.fa.fa-building-o
+        | Company
+    li class="treeview #{is_accounts_path?(params) ? 'active' : ''}"
+      a href="#{admin_accounts_faculties_path}"
+        i.fa.fa-book
+        | Faculty
