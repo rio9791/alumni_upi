@@ -4,7 +4,7 @@ class Admin::Accounts::CompaniesController < Admin::ApplicationController
   # GET /admin/accounts/companies
   # GET /admin/accounts/companies.json
   def index
-    @accounts = Account.company
+    @accounts = Account.company.paginate(page: params[:page], per_page: 30)
   end
 
   # GET /admin/accounts/companies/1
@@ -28,7 +28,8 @@ class Admin::Accounts::CompaniesController < Admin::ApplicationController
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Company was successfully created.' }
+        @account.add_role 'company'
+        format.html { redirect_to admin_accounts_companies_path, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class Admin::Accounts::CompaniesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @account.update(company_params)
-        format.html { redirect_to @account, notice: 'Company was successfully updated.' }
+        format.html { redirect_to admin_accounts_companies_path, notice: 'Company was successfully updated.' }
         format.json { render :show, status: :ok, location: @account }
       else
         format.html { render :edit }
@@ -69,6 +70,6 @@ class Admin::Accounts::CompaniesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:account).permit()
+      params.require(:account).permit(:email, :password, :password_confirmation, company_attributes: [:id, :name, :field, :address])
     end
 end

@@ -4,7 +4,7 @@ class Admin::Accounts::AlumnisController < Admin::ApplicationController
   # GET /admin/accounts/alumnis
   # GET /admin/accounts/alumnis.json
   def index
-    @accounts = Account.alumni
+    @accounts = Account.alumni.paginate(:page => params[:page], :per_page => 50)
   end
 
   # GET /admin/accounts/alumnis/1

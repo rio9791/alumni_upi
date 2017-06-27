@@ -4,7 +4,7 @@ class Admin::Accounts::FacultiesController < Admin::ApplicationController
   # GET /admin/accounts/faculties
   # GET /admin/accounts/faculties.json
   def index
-    @accounts = Account.faculty
+    @accounts = Account.faculty.paginate(page: params[:page], per_page: 30)
   end
 
   # GET /admin/accounts/faculties/1
@@ -28,7 +28,8 @@ class Admin::Accounts::FacultiesController < Admin::ApplicationController
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Faculty was successfully created.' }
+        @account.add_role 'faculty'
+        format.html { redirect_to admin_accounts_faculties_path, notice: 'Faculty was successfully created.' }
         format.json { render :show, status: :created, location: @account }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class Admin::Accounts::FacultiesController < Admin::ApplicationController
   def update
     respond_to do |format|
       if @account.update(admin_accounts_faculty_params)
-        format.html { redirect_to @account, notice: 'Faculty was successfully updated.' }
+        format.html { redirect_to admin_accounts_faculties_path, notice: 'Faculty was successfully updated.' }
         format.json { render :show, status: :ok, location: @account }
       else
         format.html { render :edit }
@@ -69,6 +70,6 @@ class Admin::Accounts::FacultiesController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def faculty_params
-      params.require(:account).permit()
+      params.require(:account).permit(:email, :password, :password_confirmation, faculty_attributes: [:id, :name, :major])
     end
 end

@@ -33,8 +33,10 @@ gem 'annotate'
 gem 'slim'
 # A ruby web server built for concurrenc
 gem 'puma'
-# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
-gem 'kaminari'
+# will_paginate is a pagination library that integrates with Ruby on Rails, Sinatra, Merb, DataMapper and Sequel.
+gem 'will_paginate', '~> 3.1.0'
+# Integrates the Twitter Bootstrap pagination component with will_paginate
+gem 'will_paginate-bootstrap'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
