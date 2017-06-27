@@ -11,13 +11,15 @@
           tbody
             tr
               th style=("width: 10px")  #
-              th Name
+              th Nama
+              th Bidang
               th Action
             - unless @accounts.blank?
               - @accounts.each do |account|
                 tr
                   td= account.id
-                  td= account.email
+                  td= account.company.name
+                  td= account.company.field
                   td
                     = link_to edit_admin_accounts_company_path(account) do
                       i.fa.fa-pencil
