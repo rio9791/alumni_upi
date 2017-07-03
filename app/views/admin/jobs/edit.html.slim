@@ -1,0 +1,18 @@
+section.content-header
+  h1
+    |  Job
+    small
+      | Edit
+  ol.breadcrumb
+    li
+      = link_to accounts_dashboard_index_path do
+        i.fa.fa-dashboard
+        |  Home
+    li.active
+      | Edit Job
+section.content
+  .row
+    .col-xs-12
+      .box
+        .box-body
+          = render 'form'

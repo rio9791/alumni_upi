@@ -1,18 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-    namespace :accounts do
-      resources :faculties
-    end
-  end
-  namespace :admin do
-    namespace :accounts do
-      resources :companies
-    end
-  end
-  namespace :admin do
-    namespace :accounts do
-      resources :alumnis
-    end
+    resources :donates
   end
   devise_for :accounts, controllers: {
     sessions: 'accounts/sessions',
@@ -22,6 +10,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :dashboard
+    resources :jobs
+    resources :news
+    resources :donations
     namespace :accounts do
       resources :alumnis
       resources :companies
@@ -29,7 +20,16 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :accounts do
+    resources :dashboard
+    resources :jobs
+    resources :news
+  end
+
   resources :home
+  resources :news
+  resources :careers
+  resources :donations
 
   root 'home#index'
 end

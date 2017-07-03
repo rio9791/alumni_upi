@@ -11,12 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery-migrate-1.3.0
 //= require bootstrap
 //= require summernote
-//= require select2
 //= require turbolinks
+//= require select2
 //= require cocoon
 //= require admin/bootstrap-datepicker
 //= require admin/app
+//= require admin/customs
+//= require bootstrap-datepicker

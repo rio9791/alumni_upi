@@ -4,7 +4,16 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+# To gemify the summernote WYSIWYG editor for Rails >= 3.1
+gem 'summernote-rails'
+# To solve the problems on the turbolinks
+gem 'jquery-turbolinks'
+# Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "font-awesome-rails"
+# A Datepicker for Twitter Bootstrap, integrated with Rails assets pipeline
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -41,16 +50,17 @@ gem 'will_paginate-bootstrap'
 # gem 'bcrypt', '~> 3.1.7'
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave', '~> 1.0'
+# mini replacement for RMagick
+gem 'mini_magick'
 gem 'factory_girl_rails', :require => false
 # Integrate Select2 javascript library with Rails asset pipeline
 gem 'select2-rails'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem 'rails_12factor'
-# To gemify the summernote WYSIWYG editor for Rails >= 3.1
-gem 'summernote-rails'
-# Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
 gem 'cocoon'
+# Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
+gem 'rails-i18n', '~> 4.0.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

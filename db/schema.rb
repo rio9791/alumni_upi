@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170622074737) do
+ActiveRecord::Schema.define(version: 20170701102706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,8 +91,9 @@ ActiveRecord::Schema.define(version: 20170622074737) do
   create_table "donates", force: :cascade do |t|
     t.decimal  "amount"
     t.string   "file_transfer"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "recipient_name"
   end
 
   create_table "faculties", force: :cascade do |t|
@@ -128,15 +129,25 @@ ActiveRecord::Schema.define(version: 20170622074737) do
     t.string   "description"
     t.date     "due_date"
     t.boolean  "visible"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "company_name"
+    t.string   "location"
+    t.string   "level"
+    t.string   "qualification"
+    t.decimal  "salary_range_min"
+    t.decimal  "salary_range_max"
+    t.string   "job_type"
+    t.boolean  "negotiable_salary", default: true
+    t.text     "about_company"
   end
 
   create_table "news", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "visible",    default: true
   end
 
   create_table "organizations", force: :cascade do |t|

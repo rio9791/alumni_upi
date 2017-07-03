@@ -1,0 +1,34 @@
+.row
+  .col-md-12
+    .box
+      .box-header.with-border
+        h3.box-title List Job
+        .pull-right
+          = link_to 'Add Job', new_admin_job_path, class: 'btn btn-success btn-md'
+      /! /.box-header
+      .box-body
+        table.table.table-bordered
+          tbody
+            tr
+              th style=("width: 10px") #
+              th Posisi
+              th Nama Perushaan
+              th Deskripsi
+              th Tanggal Kadaluarsa
+              th Action
+            - unless @jobs.blank?
+              - @jobs.each do |job|
+                tr
+                  td= job.id
+                  td= job.position
+                  td= job.company_name
+                  td= raw(job.description)
+                  td= job.due_date
+                  td
+                    = link_to edit_admin_job_path(job) do
+                      i.fa.fa-pencil
+                    = link_to admin_job_path(job), data: {method: 'DELETE', confirm: 'Are you sure want to delete this job?'} do
+                      i.fa.fa-trash-o
+      /! /.box-body
+      .box-footer.clearfix
+        = will_paginate @jobs, renderer: BootstrapPagination::Rails

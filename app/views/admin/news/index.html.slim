@@ -1,0 +1,32 @@
+.row
+  .col-md-12
+    .box
+      .box-header.with-border
+        h3.box-title List News
+        .pull-right
+          = link_to 'Add News', new_admin_news_path, class: 'btn btn-success btn-md'
+      /! /.box-header
+      .box-body
+        table.table.table-bordered
+          tbody
+            tr
+              th style=("width: 10px") #
+              th Judul
+              th Kontent
+              th Status
+              th Action
+            - unless @news.blank?
+              - @news.each do |news|
+                tr
+                  td= news.id
+                  td= news.title
+                  td= raw(news.content)
+                  td= news.visible ? 'Tampil' : 'Sembunyi'
+                  td
+                    = link_to edit_admin_news_path(news) do
+                      i.fa.fa-pencil
+                    = link_to admin_news_path(news), data: {method: 'DELETE', confirm: 'Are you sure want to delete this news?'} do
+                      i.fa.fa-trash-o
+      /! /.box-body
+      .box-footer.clearfix
+        = will_paginate @news, renderer: BootstrapPagination::Rails

@@ -1,0 +1,18 @@
+section.content-header
+  h1
+    |  News
+    small
+      | Edit
+  ol.breadcrumb
+    li
+      = link_to admin_news_index_path do
+        i.fa.fa-dashboard
+        |  Home
+    li.active
+      | Edit News
+section.content
+  .row
+    .col-xs-12
+      .box
+        .box-body
+          = render 'form'

@@ -5,10 +5,14 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     unless resource.has_role? :admin
-      root_path
+      if resource.has_role? :alumni
+        root_path
+      else
+        accounts_dashboard_index_path
+      end
     else
       admin_dashboard_index_path
     end
   end
-  
+
 end

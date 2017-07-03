@@ -1,5 +1,4 @@
-class Admin::DashboardController < Admin::ApplicationController
-  include Admin::DashboardHelper
+class Admin::DashboardController < Admin::ApplicationController  
 
   def index
 

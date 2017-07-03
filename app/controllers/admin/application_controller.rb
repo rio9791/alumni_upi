@@ -1,5 +1,6 @@
 class Admin::ApplicationController < ActionController::Base
-  layout 'admin'
+  layout 'backend'
+  include ApplicationHelper
   before_action :authenticate_admin
 
   def authenticate_admin

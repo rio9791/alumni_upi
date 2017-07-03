@@ -1,0 +1,26 @@
+- if @donate.errors.any?
+  .alert.alert-danger
+    button.close[type="button" data-dismiss="alert" aria-hidden="true"]
+      | ×
+    = pluralize(@donate.errors.count, 'error')
+    |  encountered:
+    ul
+      - @donate.errors.full_messages.each do |message|
+        li
+          = message
+= simple_form_for @donate, as: :donate, url: (@donate.new_record? ? admin_donates_path : admin_donate_path(@donate)), html: { class: 'form-horizontal', method: (@donate.new_record? ? 'post' : 'put')} do |f|
+  .panel-body
+    .row
+      .col-lg-12
+        .col-md-6
+          = f.input :recipient_name, label: 'Nama', input_html: { class: 'form-control' }
+      .col-lg-12
+        .col-md-6
+          = f.input :amount, label: 'Jumlah', as: :integer, input_html: { class: 'form-control', min: 0 }
+        .col-md-4
+          = f.input :file_transfer, as: :file, label: 'Bukti Transfer', input_html: { class: 'form-control' }
+
+  .panel-footer
+    = link_to admin_donates_path, class: 'btn btn-default' do
+      i.fa.fa-undo Back
+    = f.submit 'Save', class: 'btn btn-success'

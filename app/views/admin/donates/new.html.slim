@@ -1,0 +1,18 @@
+section.content-header
+  h1
+    |  Donate
+    small
+      | New
+  ol.breadcrumb
+    li
+      = link_to admin_dashboard_index_path do
+        i.fa.fa-dashboard
+        |  Home
+    li.active
+      | New Donate
+section.content
+  .row
+    .col-xs-12
+      .box
+        .box-body
+          = render 'form'

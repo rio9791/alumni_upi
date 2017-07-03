@@ -1,0 +1,32 @@
+header.main-header
+  = link_to root_path, class: 'logo', target: '_blank' do
+    span.logo-lg
+      b
+        | Home
+  nav.navbar.navbar-static-top[role="navigation"]
+    a.sidebar-toggle[href="#" data-toggle="offcanvas" role="button"]
+      span.sr-only
+        | Toggle navigation
+    .navbar-custom-menu
+      ul.nav.navbar-nav
+        li.dropdown.user.user-menu
+          a.dropdown-toggle[href="#" data-toggle="dropdown"]
+            = image_tag('user.png', class: 'user-image', alt: "User Image")
+            span.hidden-xs
+              = current_account.email
+          ul.dropdown-menu
+            li.user-header
+              = image_tag('user.png', class: 'img-circle', alt: "User Image")
+              p
+                Admin
+            li.user-body
+              .row
+                .col-xs-4.text-center
+
+                .col-xs-4.text-center
+
+                .col-xs-4.text-center
+
+            li.user-footer
+              .pull-right
+                = link_to "Sign Out", destroy_account_session_path, data: {method: 'DELETE'}, class: 'btn btn-default btn-flat'
