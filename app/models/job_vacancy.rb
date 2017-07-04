@@ -26,4 +26,6 @@ class JobVacancy < ActiveRecord::Base
   LEVEL = ['Fresh Graduate', 'Junior', 'Mid Senior', 'Senior']
   QUALIFICATION = ['Diploma', 'Sarjana', 'Magister', 'Doktor']
   JOBTYPE = ['Full-time', 'Hourly']
+
+  scope :available, -> { where("due_date >= ?", Date.today)}
 end

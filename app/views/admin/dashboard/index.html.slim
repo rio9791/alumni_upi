@@ -1,0 +1,61 @@
+section.content-header
+  h1
+    | Dashboard
+    small Control panel
+  ol.breadcrumb
+    li
+      = link_to admin_dashboard_index_path do
+        i.fa.fa-dashboard
+        | Home
+    li.active Dashboard
+
+section.content
+  /! Small boxes (Stat box)
+  .row
+    .col-lg-3.col-xs-6
+      /! small box
+      .small-box.bg-aqua
+        .inner
+          h3= @alumnis
+          p Jumlah Alumni
+        .icon
+          i.fa.fa-graduation-cap
+        = link_to admin_accounts_alumnis_path, class: 'small-box-footer' do
+          | More info
+          i.fa.fa-arrow-circle-right
+    /! ./col
+    .col-lg-3.col-xs-6
+      /! small box
+      .small-box.bg-green
+        .inner
+          h3= @jobs
+          p Jumlah Lowongan
+        .icon
+          i.fa.fa-suitcase
+        = link_to admin_jobs_path, class: 'small-box-footer' do
+          | More info
+          i.fa.fa-arrow-circle-right
+    /! ./col
+    .col-lg-3.col-xs-6
+      /! small box
+      .small-box.bg-yellow
+        .inner
+          h3= @companies
+          p Jumlah Perusahaan
+        .icon
+          i.fa.fa-building
+        = link_to admin_accounts_companies_path, class: 'small-box-footer' do
+          | More info
+          i.fa.fa-arrow-circle-right
+    /! ./col
+    .col-lg-3.col-xs-6
+      /! small box
+      .small-box.bg-red
+        .inner
+          h3= @faculties
+          p Jumlah Fakultas
+        .icon
+          i.fa.fa-book
+        = link_to admin_accounts_faculties_path, class: 'small-box-footer' do
+          | More info
+          i.fa.fa-arrow-circle-right
