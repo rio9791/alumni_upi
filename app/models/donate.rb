@@ -12,4 +12,12 @@
 
 class Donate < ActiveRecord::Base
   mount_uploader :file_transfer, ImageUploader
+
+  def self.get_json_data
+    json = Donate.all.map{|donate| donate.as_json(except: [:id, :recipient_name, :updated_at, :file_transfer])}
+    json.each_with_index do |j, index|
+      json[index]['created_at'] = json[index]['created_at'].strftime('%Y-%m-%d')
+      json[index]['amount'] = json[index]['amount'].to_i
+    end
+  end
 end

@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-    resources :dashboard
+    resources :dashboard do
+      collection do
+        get 'get_donations'
+      end
+    end
     resources :jobs
     resources :news
     resources :donations

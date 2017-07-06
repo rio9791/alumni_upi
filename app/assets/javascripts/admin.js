@@ -22,3 +22,5 @@
 //= require admin/app
 //= require admin/customs
 //= require bootstrap-datepicker
+//= require admin/morris.min
+//= require admin/raphael.min
