@@ -79,6 +79,9 @@ GEM
       responders
       warden (~> 1.2.3)
     erubis (2.7.0)
+    exception_notification (4.2.1)
+      actionmailer (>= 4.0, < 6)
+      activesupport (>= 4.0, < 6)
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
@@ -87,6 +90,8 @@ GEM
       railties (>= 3.0.0)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     i18n (0.8.4)
@@ -227,8 +232,10 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.1.0)
   devise
+  exception_notification
   factory_girl_rails
   font-awesome-rails
+  friendly_id (~> 5.1.0)
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

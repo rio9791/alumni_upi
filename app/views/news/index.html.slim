@@ -1,0 +1,24 @@
+section.blog-masonry.bg-muted
+  .container
+    .row
+      .blog-masonry-container style=("position: relative; height: 1363px;")
+        - @news.each do |news|
+          .col-md-4.col-sm-6.blog-masonry-item.branding style=("position: absolute; left: 0px; top: 0px;")
+            - unless news.cover.blank?
+              .item-inner
+                = link_to news_path(news) do
+                  = image_tag(news.cover.url, width: '365px')
+                .post-title
+                  h2= news.title
+                  p= truncate(raw(Rails::Html::FullSanitizer.new.sanitize(news.content)), length: 100, omission: '...')
+                  .post-meta
+                    span.sub.alt-font= "Posted on #{news.created_at.strftime('%B %d')}"
+                  = link_to 'Selengkapnya', news_path(news), class: 'link-text'
+            - else
+              .post-title
+                h2= news.title
+                p= truncate(raw(Rails::Html::FullSanitizer.new.sanitize(news.content)), length: 100, omission: '...')
+                .post-meta
+                  span.sub.alt-font= "Posted on #{news.created_at.strftime('%B %d')}"
+                = link_to 'Selengkapnya', news_path(news), class: 'link-text'
+      = will_paginate @news, renderer: BootstrapPagination::Rails, class: 'right-pagination'

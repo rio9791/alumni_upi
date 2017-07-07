@@ -16,6 +16,9 @@
           = f.input :title, label: 'Judul Berita', input_html: { class: 'form-control' }
       .col-lg-12
         .col-md-6
+          = f.input :cover, label: 'Cover', as: :file, input_html: { class: 'form-control' }
+      .col-lg-12
+        .col-md-6
           = f.input :content, label: 'Konten', as: :text, input_html: { class: 'form-control summernote' }
       .col-lg-12
         .col-md-2

@@ -50,6 +50,8 @@ gem 'will_paginate-bootstrap'
 # gem 'bcrypt', '~> 3.1.7'
 # Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
 gem 'carrierwave', '~> 1.0'
+# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord
+gem 'friendly_id', '~> 5.1.0'
 # mini replacement for RMagick
 gem 'mini_magick'
 gem 'factory_girl_rails', :require => false
@@ -63,7 +65,8 @@ gem 'cocoon'
 gem 'rails-i18n', '~> 4.0.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+# Exception Notifier Plugin for Rails
+gem 'exception_notification'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

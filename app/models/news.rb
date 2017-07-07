@@ -11,5 +11,11 @@
 #
 
 class News < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+  mount_uploader :cover, ImageUploader
+
   VISIBILITY = [['Ya', true], ['Tidak', false]]
+
+  scope :displays, -> { where(visible: true) }
 end
