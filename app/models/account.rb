@@ -39,4 +39,16 @@ class Account < ActiveRecord::Base
   scope :faculty, -> {joins(:roles).where(roles: {name: 'faculty'})}
   scope :admin, -> {joins(:roles).where(roles: {name: 'admin'})}
 
+  def display_name
+    if has_role?(:admin)
+      'Admin'
+    elsif has_role?(:company)
+      company.name
+    elsif has_role?(:faculty)
+      faculty.name
+    else
+      alumni.full_name
+    end
+  end
+
 end

@@ -4,8 +4,9 @@ nav.top-bar
       .col-sm-12
         .utility-inner.clearfix
           span.alt-font
-            i.icon.icon_globe-2
-            | Portal Alumni Universitas Pendidikan Indonesia
+            - if account_signed_in?
+              | Hi #{current_account.display_name},            
+            | #{account_signed_in? ? 'Welcome to ' : ''} Portal Alumni Universitas Pendidikan Indonesia
           .pull-right
             - unless account_signed_in?
               = link_to 'Login', new_account_session_path, class: 'btn btn-primary login-button btn-xs'
