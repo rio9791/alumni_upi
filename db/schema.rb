@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170706235850) do
+ActiveRecord::Schema.define(version: 20170710221611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,9 +91,10 @@ ActiveRecord::Schema.define(version: 20170706235850) do
   create_table "donates", force: :cascade do |t|
     t.decimal  "amount"
     t.string   "file_transfer"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "recipient_name"
+    t.boolean  "is_valid",       default: false
   end
 
   create_table "faculties", force: :cascade do |t|
@@ -153,6 +154,7 @@ ActiveRecord::Schema.define(version: 20170706235850) do
     t.string   "job_type"
     t.boolean  "negotiable_salary", default: true
     t.text     "about_company"
+    t.string   "slug"
   end
 
   create_table "news", force: :cascade do |t|

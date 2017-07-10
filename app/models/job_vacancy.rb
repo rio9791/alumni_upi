@@ -21,6 +21,9 @@
 #
 
 class JobVacancy < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :position, use: :slugged
+
   VISIBILITY = [['Ya', true], ['Tidak', false]]
   NEGOTIABLE = [['Ya', true], ['Tidak', false]]
   LEVEL = ['Fresh Graduate', 'Junior', 'Mid Senior', 'Senior']
@@ -28,4 +31,17 @@ class JobVacancy < ActiveRecord::Base
   JOBTYPE = ['Full-time', 'Hourly']
 
   scope :available, -> { where("due_date >= ?", Date.today)}
+
+  class << self
+
+    def search_with_params(params)
+      jobs = available
+      jobs = jobs.where("position ILIKE '%#{params[:position]}%'") if params[:position].present?
+      jobs = jobs.where("company_name ILIKE '%#{params[:company]}%'") if params[:company].present?
+      jobs = jobs.where("location ILIKE '%#{params[:location]}%'") if params[:location].present?
+      jobs      
+    end
+
+  end
+
 end

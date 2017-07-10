@@ -42,7 +42,7 @@
           = f.input :about_company, label: 'Tentang Perusahaan', as: :text, input_html: { class: 'form-control', rows: 8 }
       .col-lg-8
         .col-md-3
-          = f.input :due_date, label: 'Tanggal Kadaluarsa', as: :string, input_html: { class: 'form-control datepicker' }
+          = f.input :due_date, label: 'Tanggal Kadaluarsa', as: :string, input_html: { class: 'form-control due-date' }
         .col-md-2
           = f.input :visible, label: 'Tampilkan', as: :select, collection: JobVacancy::VISIBILITY , input_html: { class: 'form-control' }
 

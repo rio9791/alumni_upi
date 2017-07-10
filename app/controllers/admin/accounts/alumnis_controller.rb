@@ -70,7 +70,7 @@ class Admin::Accounts::AlumnisController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def alumnis_params
-      params.require(:account).permit(:email, :password, :password_confirmation, alumni_attributes: [:full_name, :nickname,
+      params.require(:account).permit(:email, alumni_attributes: [:full_name, :nickname,
         :sex, :birth_place, :dob, :address_origin, :address_domicile, :occupation, :cellphone, :bbm, :line_id, :facebook,
         :website, :twitter, :youtube, family_attributes: [:father_name, :father_birthplace, :father_dob, :father_last_education,
           :father_occupation, :father_address, :mother_name, :mother_birthplace, :mother_dob, :mother_last_education, :mother_occupation,

@@ -1,0 +1,27 @@
+header.title
+  .background-image-holder.parallax-background.skrollable.skrollable-between data-bottom-top="-webkit-transform: translate3d(0px),-100px, 0px" data-center="-webkit-transform: translate3d(0px),0px, 0px" data-top-bottom="-webkit-transform: translate3d(0px),100px, 0px" style="background: url('hero10.jpg') 50% 0%; transform: translate3d(0px), 4.73773px, 0px;"
+    = image_tag('hero9.jpg', class: 'background')
+  .container.align-bottom style="padding-top: 448px;"
+    .row
+      .col-xs-12
+        h1.text-white= "#{@job.position} di #{@job.company_name}"
+        span.sub.alt-font.text-white= @job.created_at.strftime('%d %B %Y')
+section.article-single
+  .container
+    .row
+      .col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
+        .article-body
+          h3 Deskripsi
+          = raw(@job.description)
+          h3 Lokasi
+          = @job.location
+          h3 Level Pekerjaan
+          = @job.level
+          h3 Kualifikasi
+          = @job.qualification
+          h3 Range Gaji
+          = "#{number_to_currency(@job.salary_range_min, locale: :id)} - #{number_to_currency(@job.salary_range_max, locale: :id)} #{@job.negotiable_salary? ? '(Bisa nego)' : ''}"
+          h3 Tipe Pekerjaan
+          = @job.job_type
+          h3 Tentang Perusahaan
+          = @job.about_company

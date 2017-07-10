@@ -1,0 +1,32 @@
+section.contact-photo.first-child style=("padding-top: 190px;")
+  .background-image-holder.background-donate
+    = image_tag('hero4.jpg', class: 'background-image', style: 'display:none', alt: 'Background Image')
+  .container
+    .row
+      .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.text-center
+        h1.text-white
+          | Contact Us
+          br/
+          | We'd love to hear from you
+    .photo-form-wrapper.clearfix
+      = simple_form_for @donate, url: donations_path, html: { method: :post, multipart: true } do |f|
+        - if @donate.errors.any?
+          .row
+            .col-md-6.col-sm-8.col-sm-offset-2.col-md-offset-3.text-center
+              - @donate.errors.full_messages.each do |error|
+                .form-error
+                  span.text-white= error
+        - else
+          .row
+            .col-md-6.col-sm-8.col-sm-offset-2.col-md-offset-3.text-center
+              .form-success
+                span.text-white Terima kasih atas Donasi Anda
+        .row
+          .col-md-3.col-sm-4.col-sm-offset-2.col-md-offset-3
+            = f.input :recipient_name, label: false, input_html: { class: 'form-name', placeholder: 'Nama Anda' }
+          .col-md-3.col-sm-4
+            = f.input :amount, as: :integer, label: false, input_html: {class: 'form-amount', placeholder: 'Jumlah Sumbangan' }
+        .row
+          .col-md-6.col-sm-8.col-sm-offset-2.col-md-offset-3.text-center
+            = f.input :file_transfer, as: :file, label: false, input_html: { class: 'form-file-transfer validate-required', placeholder: 'Bukti transfer'}
+            = f.submit 'Submit', class: 'send-form btn-filled'            

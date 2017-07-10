@@ -1,0 +1,38 @@
+section.contact-photo.first-child style=("padding-top: 190px;")
+  .background-image-holder.background-donate
+    = image_tag('hero4.jpg', class: 'background-image', style: 'display:none', alt: 'Background Image')
+  .container
+    .row
+      .col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.text-center
+        h1.text-white
+          | Karir
+    .photo-form-wrapper.clearfix
+      = form_tag careers_path, method: :get do
+        .row
+          .col-md-3.col-sm-4.col-sm-offset-2.col-md-offset-3
+            = text_field_tag :position, params[:position], placeholder: 'Posisi'
+          .col-md-3.col-sm-4
+            = text_field_tag :company, params[:company], placeholder: 'Nama Perusahaan'
+        .row
+          .col-md-6.col-sm-8.col-sm-offset-2.col-md-offset-3.text-center
+            = text_field_tag :location, params[:location], placeholder: 'Lokasi'
+            = submit_tag 'Cari', class: 'send-form btn-filled'
+
+section.blog-masonry.bg-muted
+  .container
+    .row
+      .blog-masonry-container style=("position: relative; height: 1363px;")
+        - unless @jobs.blank?
+          - @jobs.each do |job|
+            .col-md-4.col-sm-6.blog-masonry-item.branding style=("position: absolute; left: 0px; top: 0px;")
+              .post-title
+                h2= "#{job.position} di #{job.company_name}"
+                p= truncate(raw(Rails::Html::FullSanitizer.new.sanitize(job.description)), length: 100, omission: '...')
+                .post-meta
+                  span.sub.alt-font= job.created_at.strftime('%d %B %Y')
+                = link_to 'Selengkapnya', career_path(job), class: 'link-text'
+        - else
+          .col-md-6.col-sm-8.col-sm-offset-2.col-md-offset-3.text-center
+            | Pencarian tidak ditemukan
+
+      = will_paginate @jobs, renderer: BootstrapPagination::Rails, class: 'right-pagination'

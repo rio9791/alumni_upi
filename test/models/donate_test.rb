@@ -8,6 +8,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  recipient_name :string
+#  valid          :boolean          default(FALSE)
 #
 
 require 'test_helper'

@@ -2,8 +2,11 @@ $(document).on('ready turbolinks:load', function(){
   $('.summernote').summernote({
     height: 400
   });
-  $('.datepicker').datepicker({
+  $('.due-date').datepicker({
     format: 'dd/mm/yyyy',
     startDate: '+7d'
   });
+  $('.datepicker').datepicker({
+    format: 'dd/mm/yyyy'
+  })
 });

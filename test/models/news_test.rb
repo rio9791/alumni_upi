@@ -8,6 +8,8 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  visible    :boolean          default(TRUE)
+#  cover      :string
+#  slug       :string
 #
 
 require 'test_helper'

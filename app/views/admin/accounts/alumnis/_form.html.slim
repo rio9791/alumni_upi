@@ -14,12 +14,7 @@
       h3 Data akun
       .col-lg-6
         .col-md-6
-          = f.input :email, as: :string, input_html: { class: 'form-control' }
-      .col-lg-12
-        .col-md-6
-          = f.input :password, as: :password, input_html: { class: 'form-control' }
-        .col-md-6
-          = f.input :password_confirmation, as: :password, input_html: { class: 'form-control' }
+          = f.input :email, as: :string, input_html: { class: 'form-control' }      
   = f.simple_fields_for :alumni, @account.new_record? ? @account.build_alumni : @account.alumni do |alumni|
     .panel-body
       .row
@@ -37,7 +32,7 @@
           .col-md-3
             = alumni.input :birth_place, label: 'Tempat lahir', input_html: { class: 'form-control' }
           .col-md-3
-            = alumni.input :dob, as: :string, label: 'Tanggal lahir', input_html: { class: 'form-control datepicker' }
+            = alumni.input :dob, as: :string, label: 'Tanggal lahir', input_html: { class: 'form-control datepicker', value: @account.new_record? ? 20.years.ago.strftime('%d/%m/%Y') : @account.alumni.dob.strftime('%d/%m/%Y') }
         .col-lg-12
           .col-md-6
             = alumni.input :address_origin, as: :text, label: 'Alamat asal', input_html: { class: 'form-control' }
@@ -71,7 +66,7 @@
             .col-md-4
               = family.input :father_birthplace, label: 'Tempat lahir', input_html: { class: 'form-control' }
             .col-md-4
-              = family.input :father_dob, as: :string, label: 'Tanggal lahir', input_html: { class: 'form-control datepicker' }
+              = family.input :father_dob, as: :string, label: 'Tanggal lahir', input_html: { class: 'form-control datepicker', value: @account.new_record? ? 60.years.ago.strftime('%d/%m/%Y') : @account.alumni.family.father_dob.strftime('%d/%m/%Y') }
           .col-lg-12
             .col-md-4
               = family.input :father_last_education, label: 'Pendidikan terakhir', input_html: { class: 'form-control' }
@@ -86,7 +81,7 @@
             .col-md-4
               = family.input :mother_birthplace, label: 'Tempat lahir', input_html: { class: 'form-control' }
             .col-md-4
-              = family.input :mother_dob, as: :string, label: 'Tanggal lahir', input_html: { class: 'form-control datepicker' }
+              = family.input :mother_dob, as: :string, label: 'Tanggal lahir', input_html: { class: 'form-control datepicker', value: @account.new_record? ? 55.years.ago.strftime('%d/%m/%Y') : @account.alumni.family.mother_dob.strftime('%d/%m/%Y') }
           .col-lg-12
             .col-md-4
               = family.input :mother_last_education, label: 'Pendidikan terakhir', input_html: { class: 'form-control' }
