@@ -25,8 +25,9 @@ nav.top-bar
             = link_to 'Berita', news_index_path
           li
             = link_to 'Karir', careers_path
-          li
-            = link_to 'Donasi', donations_path
+          - unless current_account && current_account.has_role?(:admin)
+            li
+              = link_to 'Donasi', donations_path
         ul.social-icons.text-right
           li
             = link_to 'https://twitter.com/AlumniUPI', target: '_blank' do
