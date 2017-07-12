@@ -67,6 +67,6 @@ section.no-pad.clearfix
           .background-image-holder.overlay
           .inner
             span.alt-font.text-white Lowongan karir
-            h1.text-white= "#{job.position} di #{job.company_name}"
+            h3.text-white= "#{job.position} di #{job.company_name}"
             p.text-white= truncate(raw(Rails::Html::FullSanitizer.new.sanitize(job.description)), length: 150, omission: '...')
             a.btn.btn-primary.btn-white href="#{career_path(job)}" target='_blank'  Selengkapnya
