@@ -5,7 +5,7 @@ nav.top-bar
         .utility-inner.clearfix
           span.alt-font
             - if account_signed_in?
-              | Hi #{current_account.display_name},            
+              | Hi #{current_account.display_name},
             | #{account_signed_in? ? 'Welcome to ' : ''} Portal Alumni Universitas Pendidikan Indonesia
           .pull-right
             - unless account_signed_in?
@@ -17,7 +17,8 @@ nav.top-bar
     .row.nav-menu
       .col-sm-3.col-md-2.columns
         = link_to root_path do
-          = image_tag('logo-alumni.png', alt: 'Logo', class: 'logo')
+          = image_tag('logo-alumni.png', alt: 'Logo', class: 'logo logo-light')
+          = image_tag('logo-alumni.png', alt: 'Logo', class: 'logo logo-dark')
       .col-sm-9.col-md-10.columns
         ul.menu
           li

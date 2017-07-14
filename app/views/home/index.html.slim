@@ -2,11 +2,25 @@ section.hero-slider
   ul.slides
     li.overlay
       .background-image-holder.parallax-background
-        = image_tag('hero17.jpg', alt: 'Background Image', class: 'background-image')
+        = image_tag('ika_upi.jpg', alt: 'Background Image', class: 'background-image')
       .container.align-vertical
         .row
           .col-md-12.col-sm-9.text-center
             h1.text-white Selamat Datang di Portal Alumni UPI
+    li.overlay
+      .background-image-holder.parallax-background
+        = image_tag('alumni.jpg', alt: 'Background Image', class: 'background-image')
+      .container.align-vertical
+        .row
+          .col-md-12.col-sm-9.text-center
+            h1.text-white
+    li.overlay
+      .background-image-holder.parallax-background
+        = image_tag('homecoming.jpg', alt: 'Background Image', class: 'background-image')
+      .container.align-vertical
+        .row
+          .col-md-12.col-sm-9.text-center
+            h1.text-white
 section.no-pad.clearfix
   - unless @news.blank? && @news.size < 2
     - @news.each do |news|
