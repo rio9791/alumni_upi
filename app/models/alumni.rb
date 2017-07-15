@@ -36,6 +36,8 @@ class Alumni < ActiveRecord::Base
   accepts_nested_attributes_for :family
   accepts_nested_attributes_for :previous_education
 
+  validates_presence_of :full_name, :nim
+
   # enumeration
   SEX = [ :pria, :wanita ]
   enum sex: SEX

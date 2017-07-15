@@ -27,4 +27,6 @@ class College < ActiveRecord::Base
   accepts_nested_attributes_for :trainings
   accepts_nested_attributes_for :organizations
 
+  validates_presence_of :join_year
+
 end
