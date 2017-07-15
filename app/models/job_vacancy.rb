@@ -32,6 +32,10 @@ class JobVacancy < ActiveRecord::Base
 
   scope :available, -> { where("due_date >= ?", Date.today)}
 
+  validates_presence_of :position, :company_name, :description, :location, :salary_range_min, :salary_range_max
+  validates_numericality_of :salary_range_min
+  validates_numericality_of :salary_range_max, :greater_than => :salary_range_min
+
   class << self
 
     def search_with_params(params)
@@ -39,7 +43,7 @@ class JobVacancy < ActiveRecord::Base
       jobs = jobs.where("position ILIKE '%#{params[:position]}%'") if params[:position].present?
       jobs = jobs.where("company_name ILIKE '%#{params[:company]}%'") if params[:company].present?
       jobs = jobs.where("location ILIKE '%#{params[:location]}%'") if params[:location].present?
-      jobs      
+      jobs
     end
 
   end
