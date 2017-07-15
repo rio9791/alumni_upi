@@ -1,5 +1,5 @@
 class Admin::Accounts::CompaniesController < Admin::ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :new_password, :change_password]
 
   # GET /admin/accounts/companies
   # GET /admin/accounts/companies.json
@@ -52,6 +52,20 @@ class Admin::Accounts::CompaniesController < Admin::ApplicationController
     end
   end
 
+  def new_password; end
+
+  def change_password
+    respond_to do |format|
+      if @account.update(company_password_params)
+        format.html { redirect_to admin_accounts_companies_path, notice: 'Company password was successfully updated.' }
+        format.json { render :index, status: :ok, location: @account }
+      else
+        format.html { render :new_password }
+        format.json { render json: @account.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /admin/accounts/companies/1
   # DELETE /admin/accounts/companies/1.json
   def destroy
@@ -71,5 +85,9 @@ class Admin::Accounts::CompaniesController < Admin::ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
       params.require(:account).permit(:email, :password, :password_confirmation, company_attributes: [:id, :name, :field, :address])
+    end
+
+    def company_password_params
+      params.require(:account).permit(:password, :password_confirmation)
     end
 end

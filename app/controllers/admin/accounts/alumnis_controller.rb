@@ -1,5 +1,5 @@
 class Admin::Accounts::AlumnisController < Admin::ApplicationController
-  before_action :set_alumni, only: [:show, :edit, :update, :destroy]
+  before_action :set_alumni, only: [:show, :edit, :update, :destroy, :new_password, :change_password]
 
   # GET /admin/accounts/alumnis
   # GET /admin/accounts/alumnis.json
@@ -19,6 +19,20 @@ class Admin::Accounts::AlumnisController < Admin::ApplicationController
 
   # GET /admin/accounts/alumnis/1/edit
   def edit
+  end
+
+  def new_password; end
+
+  def change_password
+    respond_to do |format|
+      if @account.update(alumni_password_params)
+        format.html { redirect_to admin_accounts_alumnis_path, notice: 'Alumni password was successfully updated.' }
+        format.json { render :index, status: :ok, location: @account }
+      else
+        format.html { render :new_password }
+        format.json { render json: @account.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /admin/accounts/alumnis
@@ -44,7 +58,7 @@ class Admin::Accounts::AlumnisController < Admin::ApplicationController
     respond_to do |format|
       if @account.update(alumnis_params)
         format.html { redirect_to admin_accounts_alumnis_path, notice: 'Alumni was successfully updated.' }
-        format.json { render :show, status: :ok, location: @account }
+        format.json { render :index, status: :ok, location: @account }
       else
         format.html { render :edit }
         format.json { render json: @account.errors, status: :unprocessable_entity }
@@ -78,5 +92,9 @@ class Admin::Accounts::AlumnisController < Admin::ApplicationController
              :advanced_training, :senior_course, :commissariat, :korkom, :branch, :badko, :pb, trainings_attributes: [:id, :name,
                :_destroy], organizations_attributes: [:id, :name, :position, :description, :_destroy]],
                previous_education_attributes: [:elementary_school, :junior_high_school, :senior_high_school], university_educations_attributes: [:id, :university_name, :faculty, :major, :year, :graduate, :_destroy]])
+    end
+
+    def alumni_password_params
+      params.require(:account).permit(:password, :password_confirmation)
     end
 end

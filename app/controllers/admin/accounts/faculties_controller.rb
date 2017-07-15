@@ -1,5 +1,5 @@
 class Admin::Accounts::FacultiesController < Admin::ApplicationController
-  before_action :set_faculty, only: [:show, :edit, :update, :destroy]
+  before_action :set_faculty, only: [:show, :edit, :update, :destroy, :new_password, :change_password]
 
   # GET /admin/accounts/faculties
   # GET /admin/accounts/faculties.json
@@ -52,6 +52,20 @@ class Admin::Accounts::FacultiesController < Admin::ApplicationController
     end
   end
 
+  def new_password; end
+
+  def change_password
+    respond_to do |format|
+      if @account.update(faculty_password_params)
+        format.html { redirect_to admin_accounts_faculties_path, notice: 'Faculty password was successfully updated.' }
+        format.json { render :index, status: :ok, location: @account }
+      else
+        format.html { render :new_password }
+        format.json { render json: @account.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /admin/accounts/faculties/1
   # DELETE /admin/accounts/faculties/1.json
   def destroy
@@ -71,5 +85,9 @@ class Admin::Accounts::FacultiesController < Admin::ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def faculty_params
       params.require(:account).permit(:email, :password, :password_confirmation, faculty_attributes: [:id, :name, :major])
+    end
+
+    def faculty_password_params
+      params.require(:account).permit(:password, :password_confirmation)
     end
 end

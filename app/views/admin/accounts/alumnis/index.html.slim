@@ -27,6 +27,8 @@
                       i.fa.fa-pencil
                     = link_to admin_accounts_alumni_path(account), data: {method: 'DELETE', confirm: 'Are you sure want to delete this alumni?'} do
                       i.fa.fa-trash-o
+                    = link_to new_password_admin_accounts_alumni_path(account) do
+                      i.fa.fa-key
       /! /.box-body
       .box-footer.clearfix
         = will_paginate @accounts, renderer: BootstrapPagination::Rails

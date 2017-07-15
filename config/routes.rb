@@ -18,9 +18,24 @@ Rails.application.routes.draw do
     resources :news
     resources :donations
     namespace :accounts do
-      resources :alumnis
-      resources :companies
-      resources :faculties
+      resources :alumnis do
+        member do
+          get :new_password
+          put :change_password
+        end
+      end
+      resources :companies do
+        member do
+          get :new_password
+          put :change_password
+        end
+      end
+      resources :faculties do
+        member do
+          get :new_password
+          put :change_password
+        end
+      end
     end
   end
 
