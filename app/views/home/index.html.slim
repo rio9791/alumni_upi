@@ -27,8 +27,7 @@ section.no-pad.clearfix
       .col-md-6.col-sm-12.no-pad
         .feature-box
           .background-image-holder.overlay
-            - unless news.cover.frontend.blank?
-              = image_tag(news.cover.frontend.url, alt: 'Background Image')
+            = image_tag(news.cover.frontend.url, alt: 'Background Image')
           .inner
             span.alt-font.text-white berita terkini
             h1.text-white= news.title
