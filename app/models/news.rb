@@ -20,4 +20,6 @@ class News < ActiveRecord::Base
   VISIBILITY = [['Ya', true], ['Tidak', false]]
 
   scope :displays, -> { where(visible: true) }
+
+  validates_presence_of :title, :content, :cover
 end

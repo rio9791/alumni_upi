@@ -13,4 +13,6 @@
 class Faculty < ActiveRecord::Base
   # relationship
   belongs_to :account
+
+  validates_presence_of :name, :major
 end

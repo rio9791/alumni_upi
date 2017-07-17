@@ -12,4 +12,6 @@
 class Training < ActiveRecord::Base
   # relationship
   belongs_to :college
+
+  validates_presence_of :name
 end

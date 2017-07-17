@@ -14,4 +14,6 @@
 class Company < ActiveRecord::Base
   # relationship
   belongs_to :account
+
+  validates_presence_of :name, :field, :address
 end

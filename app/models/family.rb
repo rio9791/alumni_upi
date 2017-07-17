@@ -25,4 +25,6 @@
 class Family < ActiveRecord::Base
   # relationship
   belongs_to :alumni
+
+  validates_presence_of :father_name, :mother_name
 end

@@ -16,4 +16,6 @@
 class UniversityEducation < ActiveRecord::Base
   # relationship
   belongs_to :alumni
+
+  validates_presence_of :university_name, :faculty, :major, :year, :graduate
 end

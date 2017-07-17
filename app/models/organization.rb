@@ -14,4 +14,6 @@
 class Organization < ActiveRecord::Base
   # relationship
   belongs_to :college
+
+  validates_presence_of :name, :position
 end
