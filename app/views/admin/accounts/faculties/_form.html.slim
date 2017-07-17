@@ -9,26 +9,26 @@
         li
           = message
 = simple_form_for @account, as: :account, url: (@account.new_record? ? admin_accounts_faculties_path : admin_accounts_faculty_path(@account)), html: { class: 'form-horizontal', method: (@account.new_record? ? 'post' : 'put')} do |f|
-  .panel-body
-    .row
-      h3 Data akun
-      .col-lg-6
-        .col-md-6
-          = f.input :email, as: :string, input_html: { class: 'form-control' }
-      .col-lg-12
-        .col-md-6
-          = f.input :password, as: :password, input_html: { class: 'form-control' }
-        .col-md-6
-          = f.input :password_confirmation, as: :password, input_html: { class: 'form-control' }
-  = f.simple_fields_for :faculty, @account.new_record? ? @account.build_faculty : @account.faculty do |faculty|
-    .panel-body
-      .row
-        h3 Data fakultas
-        .col-lg-12
-          .col-md-6
-            = faculty.input :name, label: 'Nama', input_html: { class: 'form-control' }
-          .col-md-6
-            = faculty.input :major, label: 'Jurusan', input_html: { class: 'form-control' }
+  .nav-tabs-custom
+    ul.nav.nav-tabs
+      li.active
+        a data-toggle="tab" href="#account"  Akun
+      li
+        a data-toggle="tab" href="#faculty" Fakultas
+    .tab-content
+      #account.tab-pane.active
+        .row
+          .col-lg-6
+            .col-md-6
+              = f.input :email, as: :string, input_html: { class: 'form-control' }
+      #faculty.tab-pane
+        = f.simple_fields_for :faculty, @account.new_record? ? @account.build_faculty : @account.faculty do |faculty|
+          .row
+            .col-lg-12
+              .col-md-6
+                = faculty.input :name, label: 'Nama', input_html: { class: 'form-control' }
+              .col-md-6
+                = faculty.input :major, label: 'Jurusan', input_html: { class: 'form-control' }
   .panel-footer
     = link_to admin_accounts_companies_path, class: 'btn btn-default' do
       i.fa.fa-undo Back
