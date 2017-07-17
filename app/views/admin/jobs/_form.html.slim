@@ -14,6 +14,7 @@
       .col-lg-12
         .col-md-6
           = f.input :position, label: 'Posisi', input_html: { class: 'form-control' }
+      .col-lg-12
         .col-md-6
           = f.input :company_name, label: 'Nama Perusahaan', input_html: { class: 'form-control' }
       .col-lg-12
@@ -31,14 +32,15 @@
         .col-md-4
           = f.input :job_type, label: 'Tipe Pekerjaan', as: :select, collection: JobVacancy::JOBTYPE, input_html: { class: 'form-control' }
       .col-lg-12
-        .col-md-5
+        .col-md-4
           = f.input :salary_range_min, label: 'Gaji Minimum', as: :integer, input_html: { class: 'form-control', min: 0 }
-        .col-md-5
+        .col-md-4
           = f.input :salary_range_max, label: 'Gaji Maksimum', as: :integer, input_html: { class: 'form-control', min: 0 }
+      .col-lg-12
         .col-md-2
           = f.input :negotiable_salary, label: 'Bisa Nego', as: :select, collection: JobVacancy::NEGOTIABLE, input_html: { class: 'form-control' }
       .col-lg-12
-        .col-md-6
+        .col-md-8
           = f.input :about_company, label: 'Tentang Perusahaan', as: :text, input_html: { class: 'form-control', rows: 8 }
       .col-lg-8
         .col-md-3
