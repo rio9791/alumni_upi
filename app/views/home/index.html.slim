@@ -27,7 +27,7 @@ section.no-pad.clearfix
       .col-md-6.col-sm-12.no-pad
         .feature-box
           .background-image-holder.overlay
-            = image_tag(news.cover.url, alt: 'Background Image')
+            = image_tag(news.cover.frontend.url, alt: 'Background Image')
           .inner
             span.alt-font.text-white berita terkini
             h1.text-white= news.title
@@ -73,14 +73,17 @@ section.duplicatable-content
             h5 Isi form donasi
             p
               | Silahkan isi kolom nama, jumlah donasi dan jangan lupa untuk sertakan bukti transfer. Semua kolom harus diisi, kemudian klik tombol Kirim
-section.no-pad.clearfix
-  - unless @jobs.blank? && @jobs.size < 2
-    - @jobs.each do |job|
-      .col-md-6.col-sm-12.no-pad
-        .feature-box
-          .background-image-holder.overlay
-          .inner
-            span.alt-font.text-white Lowongan karir
-            h3.text-white= "#{job.position} di #{job.company_name}"
-            p.text-white= truncate(raw(Rails::Html::FullSanitizer.new.sanitize(job.description)), length: 150, omission: '...')
-            a.btn.btn-primary.btn-white href="#{career_path(job)}" target='_blank'  Selengkapnya
+- unless @jobs.blank?
+  section.no-pad.clearfix.hero-slider-job
+    ul.slides
+      - @jobs.in_groups_of(3) do |group|
+        li.job-available
+          - group.each do |job|
+            - if job
+              .col-md-4.col-sm-12.no-pad
+                .feature-box
+                  .background-image-holder.overlay
+                  .inner
+                    span.alt-font.text-white Lowongan karir
+                    h3.text-white= "#{job.position} di #{job.company_name}"
+                    a.btn.btn-primary.btn-white href="#{career_path(job)}" target='_blank'  Selengkapnya

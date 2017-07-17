@@ -61,6 +61,13 @@ gem 'select2-rails'
 # gem 'unicorn'
 gem 'rails_12factor'
 gem 'cocoon'
+# Gibbon is an API wrapper for MailChimp's API
+gem 'gibbon', github: "amro/gibbon"
+# PDF generator (from HTML) plugin for Ruby on Rails
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+# A library for generating fake data such as names, addresses, and phone numbers.
+gem 'faker'
 # Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
 gem 'rails-i18n', '~> 4.0.0'
 # Use Capistrano for deployment
@@ -76,7 +83,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'pry'
   gem 'web-console', '~> 2.0'
-  gem "letter_opener"
+  gem 'letter_opener'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

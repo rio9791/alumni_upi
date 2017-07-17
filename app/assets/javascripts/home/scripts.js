@@ -110,6 +110,18 @@ $(document).on('ready turbolinks:load', function(){
 		}
 	}
 
+	if($('nav').hasClass('overlay-bar') || $('nav').hasClass('contained-bar') ){
+		var currentPad = parseInt($('.main-container').find(':first-child').css('padding-top'));
+		var newPad = currentPad + $('nav').outerHeight() - 48;
+		if(currentPad > 0){
+			$('.main-container').children(':first').css('padding-top', newPad);
+		}else if($('.main-container').find(':first').hasClass('hero-slider-job')){
+			var height = parseInt($('.hero-slider-job .slides li:first-child').outerHeight());
+			var newHeight = height + $('nav').outerHeight();
+			$('.hero-slider-job .slides li').css('height', newHeight);
+		}
+	}
+
 
 	// Fullwidth Subnavs
 
@@ -148,7 +160,7 @@ $(document).on('ready turbolinks:load', function(){
 
 	// Slider Initializations
 
-	$('.hero-slider').flexslider({});
+	$('.hero-slider, .hero-slider-job').flexslider({});
 	$('.image-slider').flexslider({ animation: "slide"});
 	$('.testimonials-slider').flexslider({ directionNav: false });
 

@@ -5,6 +5,14 @@ GIT
     bootstrap-datepicker-rails (1.6.4.1)
       railties (>= 3.0)
 
+GIT
+  remote: git://github.com/amro/gibbon.git
+  revision: ee4ff8df036bceaf81c5c3e4204f13509b2b3620
+  specs:
+    gibbon (3.0.2)
+      faraday (>= 0.9.1)
+      multi_json (>= 1.11.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -90,6 +98,10 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
+    faker (1.8.4)
+      i18n (~> 0.5)
+    faraday (0.12.1)
+      multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
     friendly_id (5.1.0)
@@ -124,6 +136,7 @@ GEM
     mini_portile2 (2.2.0)
     minitest (5.10.2)
     multi_json (1.12.1)
+    multipart-post (2.0.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     orm_adapter (0.5.0)
@@ -223,9 +236,11 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    wicked_pdf (1.1.0)
     will_paginate (3.1.6)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
+    wkhtmltopdf-binary (0.12.3.1)
 
 PLATFORMS
   ruby
@@ -241,8 +256,10 @@ DEPENDENCIES
   devise
   exception_notification
   factory_girl_rails
+  faker
   font-awesome-rails
   friendly_id (~> 5.1.0)
+  gibbon!
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
@@ -265,8 +282,10 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  wicked_pdf
   will_paginate (~> 3.1.0)
   will_paginate-bootstrap
+  wkhtmltopdf-binary
 
 BUNDLED WITH
    1.15.1
