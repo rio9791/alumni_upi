@@ -77,12 +77,27 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.default_url_options = { host: 'alumniupi.herokuapp.com' }
+  config.default_host_url = 'http://alumniupi.herokuapp.com'
+
+  config.action_mailer.default_url_options = { host: 'alumniupi.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+       :address => "smtp.gmail.com",
+       :port => 587,
+       :user_name => "upialumni@gmail.com",
+       :password => "alumniupi2017",
+       :authentication => :plain,
+       :enable_starttls_auto => true
+  }
+
   # exception notification
   config.middleware.use ExceptionNotification::Rack,
   :email => {
     :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
     :email_prefix => "[Exception notifier] ",
-    :sender_address => %{"[Alumni UPI] Exception Notifier" <alumniupi@gmail.com>},
+    :sender_address => %{"[Alumni UPI] Exception Notifier" <upialumni@gmail.com>},
     :exception_recipients => %w{rio.dermawan57@gmail.com}
   }
 end
