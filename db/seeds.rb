@@ -12,7 +12,7 @@ if Account.with_role(:admin).blank?
   admin.add_role(:admin)
 end
 
-unless JobVacancy.all.size > 0
+unless JobVacancy.all.size < 5
   salary_min = 2000000
   increase_salary = 10000000
   30.times do
