@@ -25,3 +25,4 @@ test:
 production:
   <<: *default
   database: alumni_upi_prod
+  password: fcCD9813
