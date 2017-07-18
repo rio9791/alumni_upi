@@ -25,4 +25,5 @@ test:
 production:
   <<: *default
   database: alumni_upi_prod
+  username: postgres
   password: fcCD9813
