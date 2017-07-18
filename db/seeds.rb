@@ -12,7 +12,7 @@ if Account.with_role(:admin).blank?
   admin.add_role(:admin)
 end
 
-if JobVacancy.all.size < 5
+unless JobVacancy.all.size > 0
   salary_min = 2000000
   increase_salary = 10000000
   30.times do
@@ -27,7 +27,7 @@ if JobVacancy.all.size < 5
   end
 end
 
-unless News.all.size > 0
+# unless News.all.size > 0
   20.times do
     news = News.create({title: Faker::Book.title,
       content: Faker::Lorem.paragraphs,
@@ -35,4 +35,4 @@ unless News.all.size > 0
       visibility: true})
       puts "Creating news.."
   end
-end
+# end
