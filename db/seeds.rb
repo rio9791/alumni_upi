@@ -26,3 +26,13 @@ unless JobVacancy.all.size > 0
     puts "Creating jobs.."
   end
 end
+
+unless News.all.size > 0
+  20.times do
+    news = News.create({title: Faker::Book.title,
+      content: Faker::Lorem.paragraphs,
+      remote_cover_url: Faker::LoremPixel.image("300x300"),
+      visibility: true})
+      puts "Creating news.."
+  end
+end

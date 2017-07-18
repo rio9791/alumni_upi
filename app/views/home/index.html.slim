@@ -21,18 +21,22 @@ section.hero-slider
         .row
           .col-md-12.col-sm-9.text-center
             h1.text-white
-section.no-pad.clearfix
-  - unless @news.blank? && @news.size < 2
-    - @news.each do |news|
-      .col-md-6.col-sm-12.no-pad
-        .feature-box
-          .background-image-holder.overlay
-            = image_tag(news.cover.frontend.url, alt: 'Background Image')
-          .inner
-            span.alt-font.text-white berita terkini
-            h1.text-white= news.title
-            p.text-white= truncate(raw(Rails::Html::FullSanitizer.new.sanitize(news.content)), length: 150, omission: '...')
-            a.btn.btn-primary.btn-white href="#{news_path(news)}" target='_blank'  Selengkapnya
+- unless @news.blank?
+  section.no-pad.clearfix.hero-slider-job
+    ul.slides
+      - @news.in_groups_of(3) do |group|
+        li.job-available
+          - group.each do |news|
+            - if news
+              .col-md-4.col-sm-12.no-pad
+                .feature-box
+                  .background-image-holder.overlay
+                    = image_tag(news.cover.url, alt: 'Background Image')
+                  .inner
+                    span.alt-font.text-white berita
+                    h1.text-white= news.title
+                    p.text-white= truncate(raw(Rails::Html::FullSanitizer.new.sanitize(news.content)), length: 150, omission: '...')
+                    a.btn.btn-primary.btn-white href="#{news_path(news)}" target='_blank'  Selengkapnya
 section.duplicatable-content
   .container
     .row
@@ -83,6 +87,7 @@ section.duplicatable-content
               .col-md-4.col-sm-12.no-pad
                 .feature-box
                   .background-image-holder.overlay
+                    = image_tag(Faker::LoremPixel.image("300x300", false, 'business'))
                   .inner
                     span.alt-font.text-white Lowongan karir
                     h3.text-white= "#{job.position} di #{job.company_name}"
