@@ -32,7 +32,7 @@ end
     news = News.create({title: Faker::Book.title,
       content: Faker::Lorem.paragraphs,
       remote_cover_url: Faker::LoremPixel.image("300x300"),
-      visibility: true})
+      visible: true})
       puts "Creating news.."
   end
 # end
