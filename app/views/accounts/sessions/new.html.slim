@@ -6,6 +6,13 @@ section.no-pad.login-page.fullscreen-element
       .col-md-4.col-md-offset-4.col-sm-6.col-sm-offset-3.text-center
         h1.text-white Login to continue
         .photo-form-wrapper.clearfix
+          - if flash.any?
+            .alert.danger
+              span.closebtn onclick="this.parentElement.style.display='none';"  &times;
+              strong Terdapat kesalahan :
+              br
+                ul
+                  li= flash.alert
           = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             = f.email_field :email, autofocus: true, placeholder: 'Email Address'
             = f.password_field :password, autocomplete: "off"

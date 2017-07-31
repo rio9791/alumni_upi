@@ -22,6 +22,10 @@ html
     .nav-container
       = render 'shared/header'
     .main-container
+      - if flash[:notice]
+        .alert.success
+          span.closebtn onclick="this.parentElement.style.display='none';"  &times;
+          strong= flash[:notice]
       = yield
     .footer-container
       = render 'shared/footer'
