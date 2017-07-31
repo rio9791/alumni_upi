@@ -4,7 +4,7 @@ header.title
   .container.align-bottom style="padding-top: 448px;"
     .row
       .col-xs-12
-        h1.text-white= "#{@job.position} di #{@job.company_name}"
+        h1.text-white= "#{@job.position rescue nil} di #{@job.company_name}"
         span.sub.alt-font.text-white= @job.created_at.strftime('%d %B %Y')
 section.article-single
   .container
