@@ -1,0 +1,23 @@
+section.no-pad.login-page.fullscreen-element
+  .background-image-holder
+    = image_tag('hero6.jpg', class: 'background-image')
+  .container.align-vertical
+    .row
+      .col-md-4.col-md-offset-4.col-sm-6.col-sm-offset-3.text-center
+        h1.text-white Kirim ulang konfirmasi email
+        .photo-form-wrapper.clearfix
+          - if resource.errors.any?
+            .alert.danger
+              span.closebtn onclick="this.parentElement.style.display='none';"  &times;
+              strong Terdapat kesalahan :
+              br
+                ul
+                  - resource.errors.full_messages.each do |error|
+                    li= error
+          = form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+            = f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: 'email@example.com'
+            = f.submit 'Kirim', class: 'login-btn btn-filled'
+        /! end of photo form wrapper
+        = render "accounts/shared/links"
+    /! end of row
+  /! end of container
